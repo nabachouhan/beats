@@ -2,7 +2,7 @@
   "name": "Indian Fusion Beats Player",
   "short_name": "Beats",
   "description": "Non-stop high-energy Indian fusion anthems",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#06040f",
   "theme_color": "#ff007f",
