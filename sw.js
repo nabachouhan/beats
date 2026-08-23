@@ -1,5 +1,5 @@
 const CACHE = 'beats-v1';
-const ASSETS = ['/beats/', '/beats/index.html', '/beats/songs.json'];
+const ASSETS = ['/', '/index.html', '/songs.json'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));

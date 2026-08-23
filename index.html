@@ -1716,7 +1716,7 @@
     // ─────────────────────────────────────────────
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/beats/sw.js', { scope: '/beats/' }).catch(() => {});
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
       });
     }
   </script>
