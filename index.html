@@ -1432,6 +1432,27 @@
       document.title = `${track.title} • INDIAN FUSION BEATS`;
 
       renderPlaylist();
+
+      // ── Media Session API (Background Play & Lock Screen Controls) ──
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: track.title,
+          artist: track.artist,
+          album: track.album || 'Indian Fusion Beats',
+          artwork: [
+            { src: `https://img.youtube.com/vi/${track.id}/hqdefault.jpg`, sizes: '480x360', type: 'image/jpeg' }
+          ]
+        });
+
+        navigator.mediaSession.setActionHandler('play', () => {
+          if (ytPlayer && typeof ytPlayer.playVideo === 'function') ytPlayer.playVideo();
+        });
+        navigator.mediaSession.setActionHandler('pause', () => {
+          if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') ytPlayer.pauseVideo();
+        });
+        navigator.mediaSession.setActionHandler('previoustrack', () => changeTrack(-1));
+        navigator.mediaSession.setActionHandler('nexttrack', () => changeTrack(1));
+      }
     }
 
     // ─────────────────────────────────────────────
